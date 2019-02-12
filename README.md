@@ -1,4 +1,4 @@
-# DWG_errors_project 
+# DWG_errors 
 ---
 ## Description
 Simply put, the code here captures data from HTML files (saved locally) and stores them in a database (versus using flat files). A second module (dwg_visuals.py) was created to begin looking at data visualizations and how I might want to present data to others. 
