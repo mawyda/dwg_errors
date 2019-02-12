@@ -1,0 +1,15 @@
+birth errors 
+
+Q?: Should you keep old functions in code, or just remove?
+
+
+parts, dwg_errors, dwg_details
+
+
+
+
+
+
+
+
+

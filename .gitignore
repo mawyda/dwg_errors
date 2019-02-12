@@ -1,0 +1,4 @@
+*.pyc
+/output
+/BIRTH
+__pycache__/
