@@ -91,7 +91,9 @@ def scrape_ind_html(filename, error_codes, parts_list):
 	
 if __name__ == '__main__':
 	
-	root = 'C:\\Users\\mdalt\\Documents\\Coding\\BIRTH_ERRORS\\BIRTH'
+	# path to be entered by user...
+	root = 'C:\\enter_path_as_string'
+	
 	# Get current error codes and parts from DB 
 	error_codes = pull_error_codes()
 	parts_list = pull_parts()

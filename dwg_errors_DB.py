@@ -8,7 +8,7 @@ import psycopg2
 # NOTE: 
 # Password to be entered by user...
 
-def pull_parts(password = 'Strider142'):
+def pull_parts(password = ''):
 	"""
 	Returns list of parts from DB. 
 	"""
@@ -26,7 +26,7 @@ def pull_parts(password = 'Strider142'):
 	
 	return parts 
 
-def pull_error_codes(password = 'Strider142'):
+def pull_error_codes(password = ''):
 	"""
 	Returns list of dwg error codes from DB.
 	"""
@@ -48,7 +48,7 @@ def pull_error_codes(password = 'Strider142'):
 	
 	return full_errors
 
-def update_error_codes(dcny, password = 'Strider142'): 	
+def update_error_codes(dcny, password = ''): 	
 	"""
 	Write updated dcny to DB.
 	Takes dcny of new error codes and updates appropriate table in DB.
@@ -71,7 +71,7 @@ def update_error_codes(dcny, password = 'Strider142'):
 	cur.close()
 	conn.close()	
 
-def final_db_write(data, table, password = 'Strider142'):
+def final_db_write(data, table, password = ''):
 	""" 
 	Writes the list of tuples into the table specified by arg
 	"""	
@@ -116,7 +116,7 @@ def update_DB(full_list):
 	final_db_write(first_table, 'parts')
 	final_db_write(second_table, 'dwg_details')
 	
-def pull_sql_data(queries, password = 'Strider142'):
+def pull_sql_data(queries, password = ''):
 	"""
 	Fetches data based on queries in passed arg.
 	"""
