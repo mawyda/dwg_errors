@@ -7,6 +7,8 @@ I automate Catia drawing creation ('drafting') through the use of RPA software a
 
 The main script in this project (dwg_errors_main.py) searches the directory for html files, scrapes each of these files for relevant data, and updates the database with newly found data. Any dwg/ part numbers that have already been uploaded to the DB will be ignored, and any new error codes will be captured and updated on the fly. It would be desirable to remove files from the dir once scraped, but unfortunately others in my department make use of these as well. 
 
+The dwg_visuals.py file was built to visualize some of the more interesting SQL queries. 
+
 ## Goals
 This project was conceived with two goals in mind:
 1. To begin applying concepts learning in Web Scraping, PostgreSQL/ DBA, and Data Science
