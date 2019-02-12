@@ -2,7 +2,9 @@
 ---
 ## Description
 Simply put, the code here captures data from HTML files (saved locally) and stores them in a database (versus using flat files). A second module (dwg_visuals.py) was created to begin looking at data visualizations and how I might want to present data to others. 
-At my current job, I automate Catia drawing creation ('drafting') through the use of RPA software. If any errors occur in the drafting process, an HTML file is created (shown in "dummy_html.html") by the application and my script then saves it locally.  A directory has been specifically built to hold all files related to an individual dwg. 
+
+I automate Catia drawing creation ('drafting') through the use of RPA software at my current job (R&D for a global vehicle manufacturer). If any errors occur in the drafting process, an HTML file is created (shown in "dummy_html.html") by the application and my script then saves it locally.  A directory has been specifically built to hold all files related to an individual dwg. 
+
 The main script in this project (dwg_errors_main.py) searches the directory for html files, scrapes each of these files for relevant data, and updates the database with newly found data. Any dwg/ part numbers that have already been uploaded to the DB will be ignored, and any new error codes will be captured and updated on the fly. It would be desirable to remove files from the dir once scraped, but unfortunately others in my department make use of these as well. 
 
 ## Goals
