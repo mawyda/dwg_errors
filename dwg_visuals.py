@@ -1,4 +1,4 @@
-# birth_visuals_2.py
+# dwg_visuals.py
 # 02.11.2019 
 
 import pygal 
@@ -35,8 +35,7 @@ def plot_error(rows):
 	plot.render_to_file('dwg_errors.svg')
 	
 def plot_pie(rows):
-	"""Plots the pie grpah showing the difference between part and prod
-	"""
+	"""Plots the pie graph showing the difference between part and prod."""
 	
 	pie_chart = pygal.Pie()
 	pie_chart.title = 'Dist. of Part versus Product'	

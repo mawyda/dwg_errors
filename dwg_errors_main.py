@@ -1,8 +1,7 @@
-# birth_errors.py
+# dwg_error_main.py
 # 01.14.2019
 
 import os
-import csv
 
 from bs4 import BeautifulSoup
 
@@ -22,45 +21,6 @@ def find_error_htmls(root):
 				error_htmls.append(os.path.join(dirpath, dirfile))
 
 	return error_htmls
-
-def build_error_table(filename):
-	"""
-		NO LONGER IN USE... Used to build the initial DB table.
-	Collects and returns unique error codes and messages from html.
-	"""
-	
-	with open(filename, 'r') as htmlfile:
-		contents = htmlfile.read()
-	soup  = BeautifulSoup(contents, 'html.parser')
-	# The second table in html houses the error information.
-	table = soup.find_all('table')[1]
-	# Find trs that are not headers
-	trs = table.find_all('tr', bgcolor = "#ffffff")
-	# init dcny and loop for data 
-	codes = {}
-	for tr in trs:
-		# Pull just the a.text
-		error_code = tr.a.text # Can also search on td
-		error_msg = tr.find('td', width = "550").text
-		if error_code not in codes:
-			codes[error_code] = error_msg
-
-	return codes
-	
-def write_errors_csv(full_codes):
-	"""
-		NO LONGER IN USE... Used to build the initial DB table.
-	Writes out (CWD) error codes dcny to a csv for SQL import.
-	"""
-	# Passing in dcny, so simple reader is enough
-	with open('error_codes.csv', 'w', newline = '') as csvfile:
-		csvwriter = csv.writer(csvfile, delimiter = ',', 
-			quotechar = '"')
-		# Write header
-		csvwriter.writerow(['Error Code', 'Error Message'])
-		# Loop to write rows 
-		for key, value in full_codes.items():
-			csvwriter.writerow([key, value])
 	
 def scrape_ind_html(filename, error_codes, parts_list):
 	"""
@@ -138,7 +98,7 @@ if __name__ == '__main__':
 	
 	# Find all error htmls in root.
 	error_htmls = find_error_htmls(root)
-	# Show length 
+	# Since dir is periodically expunged, show that data was found...
 	print(len(error_htmls))
 	
 	# init list for ind part dcny's
