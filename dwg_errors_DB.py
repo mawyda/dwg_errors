@@ -21,7 +21,7 @@ def pull_parts(password = ''):
 	cur.execute('SELECT part_number FROM parts')
 	# Returns list of tuples from query 
 	rows = cur.fetchall()
-	# create a list to return 
+	# create a list to return
 	parts = list(row[0] for row in rows)
 	
 	return parts 
@@ -34,15 +34,15 @@ def pull_error_codes(password = ''):
 							user = 'postgres', 
 							password = password,
 						)
-	# Create cursor object 
 	cur = conn.cursor()
-	# Make query 
+	
+	# Return all 8-digit codes from DB 
 	cur.execute('SELECT error_code FROM dwg_errors')
-	# return the rows of query
 	rows = cur.fetchall()
-	# create list to return. fetchall() creates a tuple.
+	# create list to return by converting from tuple ex. (code, )
 	full_errors = list(row[0] for row in rows)
-	# Shut it down
+	
+	# Close out
 	cur.close()
 	conn.close()
 	
@@ -58,7 +58,7 @@ def update_error_codes(dcny, password = ''):
 							password = password,
 						)
 	cur = conn.cursor()
-	# Create statement. Note no semi-colon
+	
 	sql = '''INSERT INTO dwg_errors 
 			 VALUES 
 				(%s, %s)
@@ -66,8 +66,8 @@ def update_error_codes(dcny, password = ''):
 	# Convert dcny to list of tuples for execute many stmt below.
 	error_list = list((key, value) for key, value in dcny.items())
 	cur.executemany(sql, error_list)
-	# Commit and close out. 
 	conn.commit()
+	
 	cur.close()
 	conn.close()	
 
