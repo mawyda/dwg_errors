@@ -6,10 +6,17 @@ Q?: Should you keep old functions in code, or just remove?
 parts, dwg_errors, dwg_details
 
 
+write a read me
+test that this all still works.
+create dummy html
+create dummy svgs.
+
+refactor and clean up.
+- remove anything stating that this is birth. 
+- file locations might be an issue as well.
 
 
-
-
-
+README: 
+Trying to improve the analytics in the department by capturing the data, storing in a db, and then pulling this data as needed to create visualizations and come to some understanidng- to paint a picture and tell a story about the workflow. 
 
 
