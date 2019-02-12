@@ -12,7 +12,7 @@ def pull_parts(password = 'Strider142'):
 	"""
 	Returns list of parts from DB. 
 	"""
-	conn = psycopg2.connect(database = 'test', 
+	conn = psycopg2.connect(database = 'dwg_project', 
 							user = 'postgres',
 							password = password,
 						)
@@ -30,7 +30,7 @@ def pull_error_codes(password = 'Strider142'):
 	"""
 	Returns list of dwg error codes from DB.
 	"""
-	conn = psycopg2.connect(database = 'test', 
+	conn = psycopg2.connect(database = 'dwg_project', 
 							user = 'postgres', 
 							password = password,
 						)
@@ -53,7 +53,7 @@ def update_error_codes(dcny, password = 'Strider142'):
 	Write updated dcny to DB.
 	Takes dcny of new error codes and updates appropriate table in DB.
 	"""
-	conn = psycopg2.connect(database = 'test', 
+	conn = psycopg2.connect(database = 'dwg_project', 
 							user = 'postgres',
 							password = password,
 						)
@@ -75,7 +75,7 @@ def final_db_write(data, table, password = 'Strider142'):
 	""" 
 	Writes the list of tuples into the table specified by arg
 	"""	
-	conn = psycopg2.connect(database = 'test', 
+	conn = psycopg2.connect(database = 'dwg_project', 
 							user = 'postgres', 
 							password = password,
 						)
@@ -116,14 +116,27 @@ def update_DB(full_list):
 	final_db_write(first_table, 'parts')
 	final_db_write(second_table, 'dwg_details')
 	
-
+def pull_sql_data(queries, password = 'Strider142'):
+	"""
+	Fetches data based on queries in passed arg.
+	"""
+	# Create the connection
+	conn = psycopg2.connect(database = 'dwg_project', 
+							user = 'postgres', 
+							password = password,
+						)
+	cur = conn.cursor()
+	# init the list to return 
+	query_results = []
+	# Loop through each 
+	for query in queries:
+		cur.execute(query)
+		rows = cur.fetchall()
+		query_results.append(rows)
+	
+	cur.close()
+	conn.close()
+	
+	return query_results
 	
 
-
-	
-	
-	
-
-
-
-	

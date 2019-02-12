@@ -147,16 +147,14 @@ if __name__ == '__main__':
 		print(html) 
 		part_data, error_updates = scrape_ind_html(html, error_codes, 
 			parts_list)
-		# append the ind scrape dcny to list 
-		# Check saves and 3DDSS are returned as None, so can be ignored
+		# Append the ind scrape dcny to list. 
 		if part_data != None:
 			full_list.append(part_data)
-		# Update full_errors if necessary 
+		# Update full_errors if necessary
+		# Re-returns list from DB after update.
 		if error_updates:
-			# Will run code to update and return the full list. 
 			print('Updating DB error list...')
 			update_error_codes(error_updates)
-			# Need to pull the list after updates. 
 			error_codes = pull_error_codes()		
 	
 	###	
@@ -175,4 +173,3 @@ if __name__ == '__main__':
 	print('\n-----Process complete!-----')
 	
 	
-

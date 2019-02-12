@@ -1,0 +1,19 @@
+CREATE DATABASE dwg_project;
+
+CREATE TABLE dwg_errors (
+    error_code varchar(8), 
+    error_msg varchar(200) 
+);
+
+CREATE TABLE dwg_details (
+    part_number varchar(20),
+    error_code varchar(8),
+    number_errors smallint
+);
+
+CREATE TABLE parts (
+    part_number varchar(20),
+    part_number_ext varchar(12),
+    date timestamp 
+);
+
